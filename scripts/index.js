@@ -2,8 +2,8 @@ window.onload = function() {
 
     //this could be any date in the future. 
     //just using tomorrow's date as an example;
-    var endDate = new Date(new Date().getTime() + 5000);//(60 * 60 * 24 * 1000));
-   // endDate.setHours(0, 0, 0, 0);
+    var endDate = new Date(new Date().getTime() + 60 * 60 * 24 * 1000);
+   endDate.setHours(0, 0, 0, 0);
 
     var timer = new Timer(endDate);
     
@@ -13,6 +13,8 @@ window.onload = function() {
     var intervalId = setInterval(function() {
         if (!timer.ended()) {
             remaining["innerHTML" || "textContent"] = timer.remainingTime();
+            remaining.className = "remaining";
+            label.className = "label";
         } else {
             remaining["innerHTML" || "textContent"] = "ENDED!";
             label["innerHTML" || "textContent"] = "";

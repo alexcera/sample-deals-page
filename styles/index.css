@@ -8,39 +8,51 @@ body {
 
 div.countdown-clock {
     float: right;
+    margin-top: 50px;
+    margin-right: 50px;
 }
 
-div.countdown-clock div {
-    display: inline-block;
-}
 
 .clearfix {
     clear: both;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: 
+}
 
 div.timer-content {
-    width: 20em;
-    height: 20em;
+    width: 250px;
+    height: 250px;
     background-color: #666;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    border: 15px solid #666;
+    border: 20px solid #666;
     box-shadow: inset 0 0 0 10px #FFF;
     color: #FFF;
-    line-height: 20em;
-    text-align: center;
-    vertical-align: middle;
+    line-height: 250px;
+    text-align: center; 
+    position: relative;
 }
 
 div.timer-content div {
-    height: 20em;
-    margin: auto;
     line-height: normal;
     font-size: 18px;
+    position: relative;
+    top: 95px;
+}
+
+p.label, p.remaining {
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 p.remaining {
-    font-size: 24px;
+    font-size: 38px;
 }
