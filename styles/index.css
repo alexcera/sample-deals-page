@@ -10,32 +10,37 @@ div.countdown-clock {
     float: right;
 }
 
+div.countdown-clock div {
+    display: inline-block;
+}
+
 .clearfix {
     clear: both;
 }
 
-div.outer-circle {
-    border: solid 20px #666;
-    width: 220px;
-    height: 220px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    line-height: 220px;
-}
 
 div.timer-content {
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
-    background-color: #666666;
+    width: 20em;
+    height: 20em;
+    background-color: #666;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
+    border: 15px solid #666;
+    box-shadow: inset 0 0 0 10px #FFF;
     color: #FFF;
+    line-height: 20em;
+    text-align: center;
+    vertical-align: middle;
 }
 
-div.timer-content span {
-  vertical-align: middle;
-  line-height: normal;
+div.timer-content div {
+    height: 20em;
+    margin: auto;
+    line-height: normal;
+    font-size: 18px;
+}
+
+p.remaining {
+    font-size: 24px;
 }
