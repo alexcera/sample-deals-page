@@ -1,0 +1,41 @@
+ul#results { border: 2px ridge maroon; background-color: #ffffcc; padding: 0.25em 1.5em; margin-left: 0; }
+li.pass { color: #006400; }
+li.fail { color: #dc143c; text-decoration: line-through; }
+
+body {
+   font: normal 13px/150% Arial, Helvetica, sans-serif;
+}
+
+div.countdown-clock {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+div.outer-circle {
+    border: solid 20px #666;
+    width: 220px;
+    height: 220px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    line-height: 220px;
+}
+
+div.timer-content {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    background-color: #666666;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    color: #FFF;
+}
+
+div.timer-content span {
+  vertical-align: middle;
+  line-height: normal;
+}
