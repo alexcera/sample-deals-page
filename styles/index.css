@@ -2,16 +2,35 @@ ul#results { border: 2px ridge maroon; background-color: #ffffcc; padding: 0.25e
 li.pass { color: #006400; }
 li.fail { color: #dc143c; text-decoration: line-through; }
 
+html, body {
+    height: 100%;
+}
+
 body {
    font: normal 13px/150% Arial, Helvetica, sans-serif;
+   height: 100%;
+}
+
+div.container {
+    background-color: #3ea7ff;
+    height: 100%;
+    padding-top: 100px;
+}
+
+div.center-section {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background-color: #fff;
 }
 
 div.countdown-clock {
     float: right;
-    margin-top: 50px;
-    margin-right: 50px;
+    height: 100%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
-
 
 .clearfix {
     clear: both;
