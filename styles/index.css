@@ -2,45 +2,76 @@ ul#results { border: 2px ridge maroon; background-color: #ffffcc; padding: 0.25e
 li.pass { color: #006400; }
 li.fail { color: #dc143c; text-decoration: line-through; }
 
+html, body {
+    height: 100%;
+}
+
 body {
    font: normal 13px/150% Arial, Helvetica, sans-serif;
+   height: 100%;
+}
+
+div.container {
+    background-color: #3ea7ff;
+    height: 100%;
+    padding-top: 100px;
+}
+
+div.center-section {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background-color: #fff;
 }
 
 div.countdown-clock {
     float: right;
-}
-
-div.countdown-clock div {
-    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .clearfix {
     clear: both;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: 
+}
 
 div.timer-content {
-    width: 20em;
-    height: 20em;
+    width: 250px;
+    height: 250px;
     background-color: #666;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    border: 15px solid #666;
+    border: 20px solid #666;
     box-shadow: inset 0 0 0 10px #FFF;
     color: #FFF;
-    line-height: 20em;
-    text-align: center;
-    vertical-align: middle;
+    line-height: 250px;
+    text-align: center; 
+    position: relative;
 }
 
 div.timer-content div {
-    height: 20em;
-    margin: auto;
     line-height: normal;
     font-size: 18px;
+    position: relative;
+    top: 95px;
+}
+
+p.label, p.remaining {
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 p.remaining {
-    font-size: 24px;
+    font-size: 38px;
 }
