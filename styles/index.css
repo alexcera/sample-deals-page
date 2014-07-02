@@ -1,27 +1,36 @@
-ul#results { border: 2px ridge maroon; background-color: #ffffcc; padding: 0.25em 1.5em; margin-left: 0; }
-li.pass { color: #006400; }
-li.fail { color: #dc143c; text-decoration: line-through; }
-
 html, body {
     height: 100%;
-}
-
-body {
-   font: normal 13px/150% Arial, Helvetica, sans-serif;
-   height: 100%;
+    font: normal 13px/150% Arial, Helvetica, sans-serif;
 }
 
 div.container {
     background-color: #3ea7ff;
     height: 100%;
-    padding-top: 100px;
+    padding-top: 50px;
+}
+
+div.top-section {
+    width: 90%;
+    margin: auto;
+    line-height: normal;
+    color: #fff;
+    font-size: 80px;
 }
 
 div.center-section {
     width: 90%;
-    height: 100%;
+    height: 80%;
     margin: auto;
     background-color: #fff;
+}
+
+div.top-header {
+    width: 100%;
+    height: 40px;
+    background-color: #c7e9ff;
+    line-height: 40px;
+    font-size: 20px;
+    padding: 1px 0 1px 15px;
 }
 
 div.countdown-clock {
@@ -38,10 +47,6 @@ div.countdown-clock {
 
 .hidden {
     display: none;
-}
-
-.show {
-    display: 
 }
 
 div.timer-content {
