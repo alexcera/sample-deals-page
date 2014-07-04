@@ -16,5 +16,5 @@
 
 ===
 #####Some Thoughts on Implementation
-* I used a css-reset to neutralize browser-related DOM rendering mechanisms.
+* I used a css-reset to neutralize browser-related DOM rendering discrepancies.
 * As an example for deadline, the page automatically considers tomorrow's date as it's deadline for the countdown.
