@@ -12,6 +12,7 @@
 #####Technology-Stack
 * `HTML5/CSS3`
 * plain `javascript`
+* [`c4timer.js`](https://github.com/alexcera/c4timer.js), of course! 
 
 ===
 #####Some Thoughts on Implementation
