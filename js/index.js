@@ -1,75 +1,103 @@
-window.onload = function() {
-    //this could be any date in the future. 
-    //just using tomorrow's date as an example;
-    var endDate = new Date(new Date().getTime() + 60 * 60 * 24 * 1000);
-    endDate.setHours(0, 0, 0, 0);
+/**
+ * a simple cross-browser prop detection function for
+ * setting a textnode to an element.
+ *
+ * @param {[type]} el
+ * @param {[type]} text
+ */
 
-    var timer = new Timer(endDate);
-
-    var remaining = document.querySelector(".remaining");
-    var label = document.querySelector(".label");
-
-    var intervalId = setInterval(function() {
-        if (!timer.ended()) {
-            setText(remaining, timer.remainingTime());
-            remaining.className = "remaining";
-            label.className = "label";
-        } else {
-            setText(remaining, "ENDED!");
-            setText(label, "");
-            clearInterval(intervalId);
-        }
-    }, 1000);
-
-};
-
-//browser-related property-detection
 function setText(el, text) {
     while (el.firstChild !== null)
         el.removeChild(el.firstChild);
     el.appendChild(document.createTextNode(text));
-}
+};
 
-/*
- * created a Timer object inside a
- * closure to protect its properties from outside
+/**
+ * This is just an exact copy of the library I created:
+ * More info here: https://github.com/alexcera/c4timer.js
+ * C4Timer is just a cheesy name, don't mind it :)
  */
 (function(w) {
-    var Timer = w.Timer = function Timer(endDate) {
 
-        //check if it is a date object, if not, fallback to tomorrow's date.
-        Object.prototype.toString.call(endDate) !== "[object Date]" ? endDate = new Date(new Date().getTime() + 1000 * 60 * 60 * 24) : endDate;
+    var _endDate = tomorrow(),
+        _onTick = function() {},
+        _onEnd = function() {},
+        _ended = false;
 
-        // checks if the Timer is called using its constructor,
-        // if not call explicitly the constructor and return it
-        if (!(this instanceof arguments.callee))
-            return new Timer(endDate);
+    function tomorrow() {
+        var tomorrowMidnight = new Date(new Date().getTime() + 86400000);
+        tomorrowMidnight.setHours(0, 0, 0, 0);
+        return tomorrowMidnight;
+    };
 
-        this.endDate = endDate
-        this.end = false;
-    }
+    function validDate(d) {
+        if (!d || Object.prototype.toString.call(d) !== "[object Date]")
+            return tomorrow();
+        else
+            return d;
+    };
 
-    // returns the remaining time from the endDate
-    // to currentDate in the form of 'hours:minutes:seconds'
-    Timer.prototype.remainingTime = function remainingTime() {
-        var secondsInMillis = 1000,
-            minutesInMillis = secondsInMillis * 60,
-            hoursInMillis = minutesInMillis * 60,
-            daysInMillis = hoursInMillis * 24;
 
-        var diff = this.endDate.getTime() - new Date().getTime();
+    function checkEnded(isEnded) {
+        _ended = isEnded;
+    };
 
-        var hrs = Math.floor(diff / (hoursInMillis));
-        var mins = Math.floor((diff % hoursInMillis) / minutesInMillis);
-        var secs = Math.floor((diff % minutesInMillis) / secondsInMillis);
+    function remainingTime() {
+        var diff = _endDate.getTime() - new Date().getTime();
 
-        if (hrs <= 0 && mins <= 0 && secs <= 0)
-            this.end = true;
+        var hrs = Math.floor(diff / 3600000);
+        var mins = Math.floor((diff % 3600000) / 60000);
+        var secs = Math.floor((diff % 60000) / 1000);
+
+        checkEnded(hrs <= 0 && mins <= 0 && secs <= 0);
 
         return hrs + ":" + mins + ":" + secs;
-    }
+    };
 
-    Timer.prototype.ended = function() {
-        return this.end;
-    }
+    var C4Timer = w.C4Timer = function(props) {
+        if (props) {
+            _endDate = validDate(props.endDate);
+            _onTick = props.onTick || _onTick;
+            _onEnd = props.onEnd || _onEnd;
+            _ended = false;
+        }
+    };
+
+    C4Timer.prototype.start = function() {
+        var id = setInterval(function() {
+            if (!_ended) {
+                _onTick(remainingTime());
+            } else {
+                _onEnd();
+                clearInterval(id);
+            }
+        }, 1000);
+    };
+
+    return C4Timer;
 })(window);
+
+
+window.onload = function() {
+
+    //if you don't wanna wait until midnight,
+    //you can pass this variable to the endDate which is currently set to null
+    var testEndDate = new Date(new Date().getTime() + 10000);
+
+    var remaining = document.querySelector(".remaining"),
+        label = document.querySelector(".label"),
+        c4Timer = new C4Timer({
+            endDate: null,
+            onTick: function(remainingTime) {
+                setText(remaining, remainingTime);
+                remaining.className = "remaining";
+                label.className = "label";
+            },
+            onEnd: function() {
+                setText(remaining, "ENDED!");
+                setText(label, "");
+            }
+        });
+
+    c4Timer.start();
+};
