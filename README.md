@@ -9,7 +9,7 @@
 [Live Demo](http://alexcera.github.io/sample-deals-page/)
 
 ===
-####Technology-Stack
+#####Technology-Stack
 * `HTML5/CSS3`
 * plain `javascript`
 
