@@ -25,9 +25,9 @@ window.onload = function() {
 
 //browser-related property-detection
 function setText(el, text) {
-    while (element.firstChild !== null)
-        element.removeChild(element.firstChild);
-    element.appendChild(document.createTextNode(text));
+    while (el.firstChild !== null)
+        el.removeChild(el.firstChild);
+    el.appendChild(document.createTextNode(text));
 }
 
 /*
