@@ -6,13 +6,13 @@
 
 ===
 #####Where can I see it?
-[Live Demo](http://alexcera.github.io/sample-deals-page/)
+[Live Demo](http://xandercera.github.io/sample-deals-page/)
 
 ===
 #####Technology-Stack
 * `HTML5/CSS3`
 * plain `javascript`
-* [`c4timer.js`](https://github.com/alexcera/c4timer.js), of course! 
+* [`c4timer.js`](https://github.com/xandercera/c4timer.js), of course! 
 
 ===
 #####Some Thoughts on Implementation
